@@ -63,35 +63,6 @@
             <p>Для СМИ: 88005553535@pozvonit.zanimat</p>
         </footer>
     </div>
-    <script>
-        (function() {
-            let MIN_DURATION = 300;
-            let start = Date.now();
-            let onFinish = function() {
-                let elapsed = Date.now() - start;
-                let remaining = Math.max(0, MIN_DURATION - elapsed);
-                setTimeout(function() {
-                    document.documentElement.classList.add('loaded');
-                    setTimeout(function() {
-                    let p = document.getElementById('preloader');
-                    if (p && p.parentNode) {
-                        p.parentNode.removeChild(p);
-                        document.body.classList.add('loaded');
-                    }
-                }, 600);
-                }, remaining);
-            };
-            if (document.readyState === 'complete') {
-                onFinish();
-            } else {
-                window.addEventListener('load', onFinish, {once: true});
-                setTimeout(function() {
-                    if(!document.documentElement.classList.contains('loaded')) {
-                        onFinish();
-                    }
-                }, 5000);
-            }
-        })();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
